@@ -1,8 +1,8 @@
 {
-  "name": "electrobotjs",
+  "name": "toolboxdev",
   "version": "0.1.0",
   "private": true,
-  "main": "public/electron.js",
+  "main": "mainProcess/electron.js",
   "homepage": "./",
   "dependencies": {
     "@craco/craco": "^7.0.0",
