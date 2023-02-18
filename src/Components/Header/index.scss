@@ -1,0 +1,22 @@
+.AppHeader{
+    height: 40px;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    background-color: rgb(29, 44, 84);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    h3{
+        color: white;
+        
+    }
+    .ant-btn-primary {
+        background-color: palevioletred;
+        -webkit-app-region: no-drag;
+      }
+      .ant-btn-primary:hover {
+        background-color: red;
+    }
+    
+}

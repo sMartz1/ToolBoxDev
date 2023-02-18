@@ -26,7 +26,8 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
       preload:path.join(__dirname, 'preload.js')},
-    frame:false
+    frame:false,
+    resizable:false
   });
   // and load the index.html of the app.
   console.log(__dirname);
@@ -43,6 +44,10 @@ ipcMain.on('startAFK',(event,arg)=>{
 ipcMain.on('stopAFK',(event,arg)=>{
   stopInterval();
   mainWindow.webContents.send("isAfk",false)
+})
+ipcMain.on("closeApp",(event,arg)=>{
+  console.log("close?")
+  app.quit();
 })
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
