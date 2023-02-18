@@ -1,13 +1,14 @@
-import './App.css';
-import {AfkModule,Header} from './Components/index.jsx';
-
+import "./App.css";
+import { AfkModule, Header } from "./Components/index.jsx";
+import { ProfileProvider } from "./utils/hooks/useProfile";
 function App() {
-   
   return (
-    <div className="App">
-       <Header />
-       <AfkModule />
-    </div>
+    <ProfileProvider>
+      <div className="App">
+        <Header />
+        <AfkModule />
+      </div>
+    </ProfileProvider>
   );
 }
 

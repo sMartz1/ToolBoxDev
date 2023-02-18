@@ -4,34 +4,35 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipcOn = require("./IPC/ipcOn");
 
-const isDev = require('electron-is-dev');
+const isDev = require("electron-is-dev");
 
 let mainWindow;
-
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 300,
     height: 600,
-    webPreferences: { 
+    webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      preload:path.join(__dirname, 'preload.js')},
-    frame:false,
-    resizable:false
+      preload: path.join(__dirname, "preload.js"),
+      devTools: true,
+    },
+
+    resizable: false,
   });
-  
+ 
   // Setup IPC listeners
-  ipcOn.setupListeners(mainWindow,app);
+  ipcOn.setupListeners(mainWindow, app);
 
   // and load the index.html of the app.
   console.log(__dirname);
   mainWindow.loadURL(
     isDev
-      ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`,
-  )
+      ? "http://localhost:3000"
+      : `file://${path.join(__dirname, "../build/index.html")}`
+  );
 }
 
 // This method will be called when Electron has finished
