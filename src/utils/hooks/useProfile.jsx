@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useIPC } from './Ipc';
+import { useIPC } from '../IPC/Ipc';
 const ProfileContext = React.createContext()
 
 export const ProfileProvider = ({ children }) => {

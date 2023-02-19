@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 import { Typography, Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-import { useIPC } from "../../utils/hooks/Ipc";
+import { useIPC } from "../../utils/IPC/Ipc";
 import { useProfile } from "../../utils/hooks/useProfile";
 export const Header = () => {
   const { Title } = Typography;

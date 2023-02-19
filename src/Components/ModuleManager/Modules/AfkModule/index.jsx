@@ -1,7 +1,7 @@
 import React from "react";
-import gandalf from "../../assets/images/afk.gif";
+import gandalf from "../../../../assets/images/afk.gif";
 import { Button } from "antd";
-import { useIPC } from "../../utils/hooks/Ipc";
+import { useIPC } from "../../../../utils/IPC/Ipc";
 import { RocketOutlined }from "@ant-design/icons";
 import "./index.scss";
 export const AfkModule = (props) => {
