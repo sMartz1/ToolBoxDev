@@ -1,7 +1,7 @@
 const fs = require("fs");
-
+const pathM = require('path');
 // Profile data path
-const path = "../profileData.json";
+const path =  pathM.join(__dirname, "../db/profileData.json");
 const defaultData = {
   user: "Default",
   modules: "All",
@@ -18,7 +18,7 @@ async function getProfile() {
 }
 
 function createDefaultProfile() {
-  console.log("Creating default data");
+  console.log("Creating default data into",path);
   let data = JSON.stringify(defaultData);
   fs.writeFileSync(path, data);
   console.log("Data created");
