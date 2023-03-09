@@ -1,12 +1,12 @@
 import AfkModuleIpc from "./modules/AfkModule/AfkModuleIpc";
-import ProfileIpc from "./ProfileIpc";
+
 export const useIPC = () => {
   
  
 
   //Module importation
   const { start, stop, isAfk } = AfkModuleIpc();
-  const { profile } = ProfileIpc();
+
 
 
   //Close application
@@ -20,6 +20,6 @@ export const useIPC = () => {
     stop,
     close,
     isAfk,
-    profile
+  
   };
 };

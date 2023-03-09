@@ -1,5 +1,6 @@
 const fs = require("fs");
 const pathM = require('path');
+const logger = require("../../utils/logger");
 // Profile data path
 const path =  pathM.join(__dirname, "../db/profileData.json");
 const defaultData = {
@@ -9,7 +10,7 @@ const defaultData = {
 
 async function getProfile() {
   if (await checkFileExists()) {
-    console.log("Returning profileData");
+    logger.info("Returning profileData");
     return getProfileData();
   } else {
     await createDefaultProfile();
@@ -18,28 +19,28 @@ async function getProfile() {
 }
 
 function createDefaultProfile() {
-  console.log("Creating default data into",path);
+  logger.info("Creating default data into",path);
   let data = JSON.stringify(defaultData);
   fs.writeFileSync(path, data);
-  console.log("Data created");
+  logger.info("Data created");
 }
 
 function checkFileExists() {
   try {
     if (fs.existsSync(path)) {
-      console.log("Profile data found!.");
+      logger.info("Profile data found!.");
       return true;
     }
   } catch (err) {
-    console.log("Error checking file :", err);
+    logger.info("Error checking file :", err);
   }
-  console.log("Profile data not found.");
+  logger.info("Profile data not found.");
   return false;
 }
 
 function getProfileData() {
   const profile = JSON.parse(fs.readFileSync(path));
-  console.log("dataProfile readed",profile)
+  logger.info("dataProfile readed",profile)
   return profile;
 }
 

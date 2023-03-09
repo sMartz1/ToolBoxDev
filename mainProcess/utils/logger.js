@@ -1,15 +1,24 @@
 const winston = require('winston');
 const { format } = require('logform');
-const { combine, timestamp, printf } = format;
+const { combine, timestamp, printf, colorize } = format;
 
 const logFormat = printf(({ level, message, timestamp }) => {
   return `${timestamp} [${level}]: ${message}`;
+});
+
+const colorizer = colorize({
+  colors: {
+    info: 'green',
+    warn: 'yellow',
+    error: 'red'
+  }
 });
 
 const logger = winston.createLogger({
   level: 'info',
   format: combine(
     timestamp(),
+    colorizer,
     logFormat
   ),
   transports: [
@@ -21,6 +30,13 @@ const logger = winston.createLogger({
       zippedArchive: true,
       format: combine(
         timestamp(),
+        logFormat
+      )
+    }),
+    new winston.transports.Console({
+      format: combine(
+        timestamp(),
+        colorizer,
         logFormat
       )
     })

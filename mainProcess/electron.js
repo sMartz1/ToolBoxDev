@@ -3,6 +3,7 @@ const path = require("path");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipcOn = require("./IPC/ipcOn");
+const logger = require('./utils/logger')
 
 const isDev = require("electron-is-dev");
 
@@ -19,15 +20,16 @@ function createWindow() {
       preload: path.join(__dirname, "preload.js"),
       devTools: true,
     },
+    devTools:true,
 
-    resizable: false,
+    resizable: true,
   });
  
   // Setup IPC listeners
   ipcOn.setupListeners(mainWindow, app);
 
   // and load the index.html of the app.
-  console.log(__dirname);
+  logger.info(__dirname);
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"

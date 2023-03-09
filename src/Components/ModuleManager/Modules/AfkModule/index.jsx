@@ -6,7 +6,6 @@ import { RocketOutlined }from "@ant-design/icons";
 import "./index.scss";
 export const AfkModule = (props) => {
   const { start, stop, isAfk } = useIPC();
-
   return (
     <div className="AfkModule">
       {isAfk ? (
