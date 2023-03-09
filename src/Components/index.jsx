@@ -1,3 +1,2 @@
-
-export { AfkModule } from "./ModuleManager/Modules/AfkModule"
 export { Header } from "./Header"
+export { ModuleManager } from "./ModuleManager/ModuleManager"

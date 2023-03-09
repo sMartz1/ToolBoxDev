@@ -1,11 +1,19 @@
 import React, { useEffect, useState} from 'react'
+import modules from './Modules';
+import ComponentRenderer from './ComponentRenderer';
+export const ModuleManager =()=> {
 
-export default function ComponentManager() {
+  const [modulesState,setModulesState] = useState([]);
 
-  const [modules,setModules] = useState([]);
+  useEffect(() => {
+    setModulesState(modules)
+  }, []);
 
-  
   return (
-    <div>ComponentManager</div>
+    <div className="module-manager">
+      {modulesState.map((Component,index)=>
+        <ComponentRenderer key={index}><Component /></ComponentRenderer>
+      )}
+    </div>
   )
 }
