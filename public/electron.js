@@ -2,8 +2,8 @@ const electron = require("electron");
 const path = require("path");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const ipcOn = require("./IPC/ipcOn");
-const logger = require('./utils/logger')
+const ipcOn = require("../mainProcess/IPC/ipcOn");
+const logger = require('../mainProcess/utils/logger')
 
 const isDev = require("electron-is-dev");
 
@@ -18,11 +18,11 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
       preload: path.join(__dirname, "preload.js"),
-      devTools: true,
+      devTools: isDev,
     },
-    devTools:true,
+    devTools:isDev,
 
-    resizable: true,
+    resizable: isDev,
   });
  
   // Setup IPC listeners

@@ -2,8 +2,20 @@
   "name": "toolboxdev",
   "version": "0.1.0",
   "private": true,
-  "main": "mainProcess/electron.js",
+  "main": "public/electron.js",
+  "author": "Sebastian Martinez",
   "homepage": "./",
+  "build": {
+    "extends": null,
+    "appId": "com.toolbox.dev",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "dist/**/*",
+      "package.json",
+      "mainProcess/**/*"
+    ]
+  },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
     "@craco/craco": "^7.0.0",
@@ -20,12 +32,15 @@
     "winston": "^3.8.2"
   },
   "scripts": {
-    "build": "craco build",
+    "setup": "npm run build && electron-builder -c.extraMetadata.main=build/electron.js",
+    "buildCraco": "craco build",
     "start": "electron .",
     "str": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pretest": "electron-rebuild"
+    "pretest": "electron-rebuild",
+    "build":"react-scripts build",
+    "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +63,7 @@
   "devDependencies": {
     "electron": "^23.1.0",
     "electron-packager": "^17.1.1",
+    "electron-builder": "^23.6.0",
     "electron-rebuild": "^3.2.9",
     "webpack-node-externals": "^3.0.0"
   }

@@ -3,7 +3,7 @@ import "./index.scss";
 import { Typography, Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { useIPC } from "../../utils/IPC/Ipc";
-import { useAppContext } from '../../Context/AppContext';
+
 
 export const Header = () => {
   const { Title } = Typography;
