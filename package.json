@@ -39,7 +39,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pretest": "electron-rebuild",
-    "build":"react-scripts build",
+    "build": "react-scripts build",
     "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
@@ -62,8 +62,8 @@
   },
   "devDependencies": {
     "electron": "^23.1.0",
-    "electron-packager": "^17.1.1",
     "electron-builder": "^23.6.0",
+    "electron-packager": "^17.1.1",
     "electron-rebuild": "^3.2.9",
     "webpack-node-externals": "^3.0.0"
   }

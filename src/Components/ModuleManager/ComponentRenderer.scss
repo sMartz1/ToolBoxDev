@@ -1,6 +1,12 @@
 .module-container{
-    height: 100px;
+    
+    height: 150px;
     display: flex;
-    width: 100%;
+    width: 25%;
+    background-color: rgb(44, 56, 90);
+    border: 1px solid black;
    
+}
+.module-manager{
+    display: flex;
 }

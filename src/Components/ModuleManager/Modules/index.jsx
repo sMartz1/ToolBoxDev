@@ -1,7 +1,8 @@
 import { AfkModule } from "./AfkModule"
-
+import { BranchModule } from "./BranchModule";
 const modules = [
-    AfkModule
+    AfkModule,
+    BranchModule
 ]
 
 export default modules;
