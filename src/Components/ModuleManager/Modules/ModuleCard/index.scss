@@ -1,0 +1,15 @@
+.cardContent {
+  display: flex;
+  justify-content: center;
+  button > span {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  button:hover > span {
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    rotate: 180deg;
+  }
+}
+
+.moduleCard {
+  width: 70%;
+}

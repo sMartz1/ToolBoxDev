@@ -1,14 +1,17 @@
 .AfkModule{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 150px;
-    max-height: 150px;
+    justify-content: center;
+    width: 90%;
     .image-afk{
         position: relative;
         width: 100%;
-        height: 100px;    
-        max-height: 100px; 
+
+    }
+    .stop-afk{
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        border-radius: 50px;
     }
 }
