@@ -5,7 +5,7 @@ import "./index.scss";
 
 export default function ModuleCard({ title, children, onClick }) {
   return (
-    <Card title={title}>
+    <Card title={title} style={{ width: "80%" }}>
       <div className="cardContent">
         <Button
           type="primary"

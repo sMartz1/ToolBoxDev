@@ -1,12 +1,10 @@
-.module-container{
-    
-    height: 150px;
-    display: flex;
-    width: 25%;
-    background-color: rgb(44, 56, 90);
-    border: 1px solid black;
-   
+.module-container {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  margin-top: 0.35rem;
 }
-.module-manager{
-    display: flex;
+.module-manager {
+  display: flex;
 }
