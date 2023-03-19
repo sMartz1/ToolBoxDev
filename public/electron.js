@@ -21,7 +21,7 @@ function createWindow() {
       devTools: isDev,
     },
     devTools:isDev,
-
+    frame:isDev,
     resizable: isDev,
   });
  
