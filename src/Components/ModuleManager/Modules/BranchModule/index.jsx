@@ -1,8 +1,15 @@
 import React from 'react'
+import ModuleCard from "../ModuleCard";
 
-export const BranchModule = ()=> {
-    
-  return (
-    <div>BranchModule</div>
-  )
+const title = "Branch MODULE";
+export const BranchModule = (props)=> {
+  const { isSelected, setSelectedModule } = props;
+
+  if (isSelected) {
+    return (
+      <div>BranchModule</div>
+    );
+  } else {
+    return (<ModuleCard title={title} onClick={setSelectedModule} />);
+  }
 }
