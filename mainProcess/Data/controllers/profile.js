@@ -3,9 +3,10 @@ const pathM = require('path');
 const logger = require("../../utils/logger");
 // Profile data path
 const path =  pathM.join(__dirname, "../db/profileData.json");
+const modulesController = require("./modules");
 const defaultData = {
   user: "Default",
-  modules: "All",
+  modules: modulesController.defaultModules(),
 };
 
 async function getProfile() {
@@ -44,6 +45,19 @@ function getProfileData() {
   return profile;
 }
 
+function updateSettings(dataUpdate){
+  logger.info("Modifying settings");
+  const profile = JSON.parse(fs.readFileSync(path));
+  let newData = {
+    ...profile,
+    modules: dataUpdate
+  }
+  let data = JSON.stringify(newData);
+  fs.writeFileSync(path, data);
+  logger.info("Settings updated");
+}
+
 module.exports = {
   getProfile,
+  updateSettings
 };
