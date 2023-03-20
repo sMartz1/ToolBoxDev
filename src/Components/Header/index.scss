@@ -15,12 +15,19 @@
         justify-content: space-evenly;
         width: 10%;
         .closeButton.ant-btn-primary {
-            background-color: palevioletred;
+            background-color: rgb(159, 54, 115);
             -webkit-app-region: no-drag;
+            &:hover{
+                background-color: rgb(55, 6, 35);
+            }
         }
-        .settingsButton.ant-btn-primary {
+        .settingsButton.ant-btn {
             background-color: rgb(109, 109, 109);
             -webkit-app-region: no-drag;
+            &:hover{
+                background-color: rgb(37, 37, 37);
+            }
+
         }
     }
 }

@@ -35,11 +35,11 @@
     "setup": "npm run build && electron-builder -c.extraMetadata.main=build/electron.js",
     "buildCraco": "craco build",
     "start": "electron .",
-    "str": "react-scripts start",
+    "str": "set PORT=3006 && react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pretest": "electron-rebuild",
-    "build": "react-scripts build",
+    "build": "set PORT=3006 && react-scripts build",
     "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {

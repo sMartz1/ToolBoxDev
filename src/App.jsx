@@ -13,7 +13,7 @@ function App() {
         <AppProvider>
             <div className="App">
                 <Header setIsSettingsOpen={setIsSettingsOpen} />
-                {isSettingsOpen ? <SettingsComponent /> : <ModuleManager />}
+                {isSettingsOpen ? <SettingsComponent  setIsSettingsOpen={setIsSettingsOpen}/> : <ModuleManager />}
             </div>
         </AppProvider>
     );

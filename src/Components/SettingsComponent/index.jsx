@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Menu, Layout, Switch, Input, Button } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons"
 import { useAppContext } from "../../Context/AppContext";
 import "./index.scss";
-const { Header, Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 function getItem(label, key, icon, children, type) {
     return {
@@ -14,11 +15,13 @@ function getItem(label, key, icon, children, type) {
     };
 }
 
-export const SettingsComponent = () => {
+export const SettingsComponent = (props) => {
     const {
         profile: { modules },
         updateProfile,
     } = useAppContext();
+
+    const { setIsSettingsOpen } = props;
 
     const [items, setItems] = useState([]);
     const [selectedModule, setSelectedModule] = useState(null);
@@ -76,10 +79,10 @@ export const SettingsComponent = () => {
                 );
 
             let fieldToPush = (
-                <>
-                    <h2>{field.title}</h2>
+                <div className="field-container">
+                    <h4>{field.title}</h4>
                     {currentField}
-                </>
+                </div>
             );
             fields.push(fieldToPush);
         });
@@ -110,6 +113,10 @@ export const SettingsComponent = () => {
             ),
         ];
     };
+
+    const capitalized = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
     let fields = generateFields(selectedModule);
     return (
         <>
@@ -126,17 +133,24 @@ export const SettingsComponent = () => {
                     />
                 </Sider>
                 <Layout>
-                    <Content>
-                        {selectedModule !== null
-                            ? fields.map((e) => e)
-                            : "Select a module..."}
-                        <Button
-                            type="dashed"
-                            disabled={!modelChanged}
-                            onClick={updateData}
-                        >
-                            Save
-                        </Button>
+                    <Content className="settings-container">
+                        {selectedModule !== null ? (
+                            <>
+                                <h2>{capitalized(selectedModule.title)}</h2>
+                                {fields.map((e) => e)}
+                                <Button
+                                    type="dashed"
+                                    disabled={!modelChanged}
+                                    onClick={updateData}
+                                    className="save-button"
+                                >
+                                    Save
+                                </Button>
+                            </>
+                        ) : (
+                            <h1>Select a module...</h1>
+                        )}
+                         <Button className="exit-settings" onClick={()=>setIsSettingsOpen(false)}type="primary" shape="circle" icon={<ArrowLeftOutlined />} danger />
                     </Content>
                 </Layout>
             </Layout>
