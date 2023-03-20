@@ -18,8 +18,10 @@ const defaultModules = () => {
     const apiKeySetting = generateSetting("ApiKey", "", "string");
     const activeSetting = generateSetting("active", true, "boolean");
     return [
-        generateModule("afkModule", [activeSetting]),
-        generateModule("naviModule", [activeSetting, apiKeySetting]),
+      generateModule("afkModule", [activeSetting]),
+      generateModule("branchModule", [activeSetting]),
+      generateModule("naviModule", [activeSetting, apiKeySetting]),
+        
     ];
 };
 
