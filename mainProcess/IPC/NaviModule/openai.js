@@ -1,0 +1,37 @@
+const { Configuration, OpenAIApi } = require("openai");
+const { getModuleData } = require("../../Data/dataManager");
+
+const apiKey = async () => {
+    const readKey = await getModuleData("naviModule", "ApiKey");
+    return readKey;
+};
+
+const configuration = new Configuration({
+    apiKey: "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",
+});
+const openai = new OpenAIApi(configuration);
+
+const sendRequest = async (query) => {
+    try {
+        const response = await openai.createChatCompletion({
+                model: "gpt-3.5-turbo",
+                messages: [{
+                        role:"user",
+                        content:query
+                }],
+            });
+            return response;
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response.status);
+            console.log(error.response.data);
+        } else {
+            console.log(error.message);
+        }
+    }
+    
+};
+
+module.exports = {
+    sendRequest,
+};

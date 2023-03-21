@@ -1,4 +1,5 @@
 import AfkModuleIpc from "./modules/AfkModule/AfkModuleIpc";
+import { sendMessage }  from './modules/NaviModule/NaviModuleIpc'
 
 export const useIPC = () => {
   
@@ -6,8 +7,6 @@ export const useIPC = () => {
 
   //Module importation
   const { start, stop, isAfk } = AfkModuleIpc();
-
-
 
   //Close application
   const close = () => {
@@ -20,6 +19,6 @@ export const useIPC = () => {
     stop,
     close,
     isAfk,
-  
+    sendMessage
   };
 };
