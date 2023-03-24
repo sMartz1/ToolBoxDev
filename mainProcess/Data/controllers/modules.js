@@ -24,6 +24,7 @@ const defaultModules = () => {
       generateModule("afkModule", [activeSetting]),
       generateModule("branchModule", [activeSetting]),
       generateModule("naviModule", [activeSetting, apiKeySetting]),
+      generateModule("linkModule", [activeSetting]),
         
     ];
 };
