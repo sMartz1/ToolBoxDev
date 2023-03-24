@@ -1,4 +1,4 @@
-.AppHeader{
+.AppHeader {
     height: 40px;
     -webkit-user-select: none;
     -webkit-app-region: drag;
@@ -7,16 +7,27 @@
     align-items: center;
     justify-content: space-between;
     padding: 0px 10px;
-    h3{
+    h3 {
         color: white;
-        
     }
-    .ant-btn-primary {
-        background-color: palevioletred;
-        -webkit-app-region: no-drag;
-      }
-      .ant-btn-primary:hover {
-        background-color: red;
+    .button-group {
+        display: flex;
+        justify-content: space-evenly;
+        width: 10%;
+        .closeButton.ant-btn-primary {
+            background-color: rgb(159, 54, 115);
+            -webkit-app-region: no-drag;
+            &:hover{
+                background-color: rgb(55, 6, 35);
+            }
+        }
+        .settingsButton.ant-btn {
+            background-color: rgb(109, 109, 109);
+            -webkit-app-region: no-drag;
+            &:hover{
+                background-color: rgb(37, 37, 37);
+            }
+
+        }
     }
-    
 }
