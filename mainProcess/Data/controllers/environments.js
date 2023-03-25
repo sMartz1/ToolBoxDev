@@ -70,6 +70,7 @@ function environment() {
 
 function updateEnvironmentData(dataUpdate) {
     logger.info("Modifying environment data!");
+    console.log(dataUpdate);
     let data = JSON.stringify(dataUpdate);
     fs.writeFileSync(path, data);
     logger.info("Settings updated");

@@ -35,3 +35,13 @@
         
     }
 }
+
+.list-header{
+    display: flex;
+    justify-content: space-between;
+    .environment-options{
+        display: flex;
+        justify-content: space-evenly;
+        width: 70px;
+    }
+}

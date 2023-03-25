@@ -14,8 +14,10 @@ function setupListeners(mainWindow, app) {
     });
     ipcMain.handle("updateEnvironmentData", async (event, arg) => {
         logger.warn(`updateEnvironmentData`);
+        console.log(arg)
         const data = await updateEnvironmentData(arg);
-        return true
+        const cdata = await getEnvironments();
+        return cdata
     });
 
 }

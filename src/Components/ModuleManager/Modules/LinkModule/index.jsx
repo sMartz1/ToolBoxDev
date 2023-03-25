@@ -3,33 +3,56 @@ import { useIPC } from "../../../../utils/IPC/Ipc";
 import CustomList from "./CustomList/CustomList";
 import "./index.scss";
 import ModuleCard from "../ModuleCard";
+import ModalTypes from "../../../../utils/Typecodes/ModalTypes";
 
 const title = "Link Module";
 
 export const LinkModule = (props) => {
     const { isSelected, setSelectedModule, setButtonDisabled } = props;
-    const { openLink, getEnvironmentData } = useIPC();
+    const { openLink, getEnvironmentData, updateEnvironmentData } = useIPC();
 
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        getEnvironmentData().then(d=>{
-            console.log("data de vuelta ",d)
-            setData(d)
-        })
+        getEnvironmentData().then((d) => {
+            console.log("data de vuelta ", d);
+            setData(d);
+        });
     }, []);
 
-    const handleStart = async () => {
-        const response = await openLink(
-            "https://stackoverflow.com/questions/51130743/how-to-open-links-in-default-browser-using-electron"
-        );
-        console.log("Se ha llamado? ", response);
+    const updateData = (updateType, value, path) => {
+        console.log(data[path[0]]);
+        let tempData = [...data];
+        // New link
+        if (ModalTypes.newLink === updateType) {
+            tempData[path[0]].links.push(value);
+            updateEnvironmentData(tempData).then((d) => {
+                setData(d);
+            });
+            return;
+        }
+        //Remove link
+        if (ModalTypes.modifyLink === updateType) {
+            tempData[path[0]].links[path[1]] = value;
+            updateEnvironmentData(tempData).then((d) => {
+                setData(d);
+            });
+            return;
+        }
+        //UpdateLink
+        if (ModalTypes.removeLink === updateType) {
+            tempData[path[0]].links.splice(path[1], 1);
+            updateEnvironmentData(tempData).then((d) => {
+                setData(d);
+            });
+            return;
+        }
     };
 
     if (isSelected) {
         return (
             <div className="link-module-container">
-                <CustomList data={data} />
+                <CustomList updateData={updateData} data={data} />
             </div>
         );
     } else {

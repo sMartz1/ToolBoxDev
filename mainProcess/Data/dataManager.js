@@ -16,8 +16,8 @@ function getModuleData(name,settings){
 function getEnvironments(){
     return environmentController.getEnvironments();
 }
-function updateEnvironmentData(){
-    return environmentController.updateEnvironmentData();
+function updateEnvironmentData(data){
+    return environmentController.updateEnvironmentData(data);
 }
 
 
