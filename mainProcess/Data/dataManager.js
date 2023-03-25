@@ -1,5 +1,6 @@
 const profileController = require("./controllers/profile");
 const moduleController = require("./controllers/modules")
+const environmentController = require("./controllers/environments")
 function getProfile() {
     return profileController.getProfile();
 }
@@ -12,8 +13,20 @@ function getModuleData(name,settings){
     moduleController.getModuleData(name,settings)
 }
 
+function getEnvironments(){
+    return environmentController.getEnvironments();
+}
+function updateEnvironmentData(){
+    return environmentController.updateEnvironmentData();
+}
+
+
+
 module.exports = {
     getProfile,
     updateSettings,
-    getModuleData
+    getModuleData,
+    getEnvironments,
+    updateEnvironmentData
+
 }

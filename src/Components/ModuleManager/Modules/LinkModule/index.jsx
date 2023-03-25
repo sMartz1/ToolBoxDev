@@ -8,45 +8,17 @@ const title = "Link Module";
 
 export const LinkModule = (props) => {
     const { isSelected, setSelectedModule, setButtonDisabled } = props;
-    const { openLink } = useIPC();
-    const data = [
-        {
-            title: "local environments",
-            links: [
-                {
-                    title: "Policy Center",
-                    url: "https://stackoverflow.com/questions/51130743/how-to-open-links-in-default-browser-using-electron",
-                    users: [
-                        {
-                            username: "testUsername",
-                            password: "testPassword",
-                        },
-                    ],
-                },
-                {
-                    title: "Policy Center",
-                    url: "https://stackoverflow.com/questions/51130743/how-to-open-links-in-default-browser-using-electron",
-                    users: [
-                        {
-                            username: "testUsername",
-                            password: "testPassword",
-                        },
-                    ],
-                },
-                {
-                    title: "Policy Center",
-                    url: "https://stackoverflow.com/questions/51130743/how-to-open-links-in-default-browser-using-electron",
-                    users: [
-                        {
-                            username: "testUsername",
-                            password: "testPassword",
-                        },
-                    ],
-                },
-                
-            ],
-        },
-    ];
+    const { openLink, getEnvironmentData } = useIPC();
+
+    const [data,setData] = useState([]);
+
+    useEffect(() => {
+        getEnvironmentData().then(d=>{
+            console.log("data de vuelta ",d)
+            setData(d)
+        })
+    }, []);
+
     const handleStart = async () => {
         const response = await openLink(
             "https://stackoverflow.com/questions/51130743/how-to-open-links-in-default-browser-using-electron"

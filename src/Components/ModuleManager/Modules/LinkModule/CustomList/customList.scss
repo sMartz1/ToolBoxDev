@@ -2,6 +2,9 @@
     background-color: rgb(69, 58, 168);
     border: none;
     color:rgb(255, 255, 255);
+    margin-top: 10px;
+    width: 87%;
+
     .card-options{
         margin-right: -20px;
         .settingsButton{
@@ -24,6 +27,7 @@
     background-color: rgba(69, 58, 168, 0.445);
     border: none;
     margin-top:10px;
+    width: 87%;
     .list-card-new-section{
         display: flex;
         width: 100%;
