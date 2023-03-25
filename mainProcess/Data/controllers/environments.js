@@ -1,37 +1,38 @@
 const logger = require("../../utils/logger");
 const fs = require("fs");
-const pathM = require('path');
-const path =  pathM.join(__dirname, "../db/environments.json");
+const pathM = require("path");
+const path = pathM.join(__dirname, "../db/environments.json");
 
-const defaultData =  [{
-    title: "SearchEnv Default",
-    links: [
-        {
-            title: "Google",
-            url: "https://google.com",
-            users: [
-                {
+const defaultData = [
+    {
+        title: "SearchEnv Default",
+        links: [
+            {
+                title: "Google",
+                url: "https://google.com",
+                users: [
+                    {
+                        username: "testUsername",
+                        password: "testPassword",
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: "SearchEnv Default",
+        links: [
+            {
+                title: "Google",
+                url: "https://google.com",
+                user: {
                     username: "testUsername",
                     password: "testPassword",
                 },
-            ],
-        },        
-    ],
-},{
-    title: "SearchEnv Default",
-    links: [
-        {
-            title: "Google",
-            url: "https://google.com",
-            users: [
-                {
-                    username: "testUsername",
-                    password: "testPassword",
-                },
-            ],
-        },        
-    ],
-}]
+            },
+        ],
+    },
+];
 
 async function getEnvironments() {
     if (await checkFileExists()) {

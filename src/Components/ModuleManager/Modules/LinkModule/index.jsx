@@ -31,7 +31,15 @@ export const LinkModule = (props) => {
             });
             return;
         }
-        //Remove link
+        //RenoveLink
+        if (ModalTypes.removeLink === updateType) {
+            tempData[path[0]].links.splice(path[1], 1);
+            updateEnvironmentData(tempData).then((d) => {
+                setData(d);
+            });
+            return;
+        }
+        //UpdateLink
         if (ModalTypes.modifyLink === updateType) {
             tempData[path[0]].links[path[1]] = value;
             updateEnvironmentData(tempData).then((d) => {
@@ -39,9 +47,27 @@ export const LinkModule = (props) => {
             });
             return;
         }
-        //UpdateLink
-        if (ModalTypes.removeLink === updateType) {
-            tempData[path[0]].links.splice(path[1], 1);
+
+        //New environment
+        if (ModalTypes.newEnvironment === updateType) {
+            tempData.push(value);
+            updateEnvironmentData(tempData).then((d) => {
+                setData(d);
+            });
+            return;
+        }
+        //Remove environment
+        if (ModalTypes.removeEnvironment === updateType) {
+            console.log("LLEGA", tempData[path[0]]);
+            tempData.splice(path[0], 1);
+            updateEnvironmentData(tempData).then((d) => {
+                setData(d);
+            });
+            return;
+        }
+        //Update environment
+        if (ModalTypes.modifyEnvironment === updateType) {
+            tempData[path[0]] = value;
             updateEnvironmentData(tempData).then((d) => {
                 setData(d);
             });
