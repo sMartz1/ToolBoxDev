@@ -8,8 +8,8 @@ import ModalTypes from "../../../../utils/Typecodes/ModalTypes";
 const title = "Link Module";
 
 export const LinkModule = (props) => {
-    const { isSelected, setSelectedModule, setButtonDisabled } = props;
-    const { openLink, getEnvironmentData, updateEnvironmentData } = useIPC();
+    const { isSelected, setSelectedModule } = props;
+    const { getEnvironmentData, updateEnvironmentData } = useIPC();
 
     const [data, setData] = useState([]);
 

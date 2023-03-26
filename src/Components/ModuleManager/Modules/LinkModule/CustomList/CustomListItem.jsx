@@ -15,11 +15,20 @@ export default function CustomListItem(props) {
     const [messageApi, contextHolder] = message.useMessage();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const { copyUsers } = useIPC();
+    const { copyUsers, openLink } = useIPC();
 
     const handleOpenSettings = () => {
         setIsModalOpen(true);
     };
+
+    const handleOpenLink = async () =>{
+        await openLink(item.url)
+        messageApi.open({
+            type: "success",
+            content: "Browser open!",
+            duration: 3,
+        });
+    }
 
     const handleDeleteItem = () => {
         updateData(TypeCodes.removeLink, null, [envIndex, linkIndex]);
@@ -112,7 +121,7 @@ export default function CustomListItem(props) {
                         >
                             Users
                         </Button>
-                        <Button type="primary" icon={<ChromeOutlined />} />
+                        <Button type="primary" icon={<ChromeOutlined />} onClick={handleOpenLink} />
                     </div>
                 </Card>
             </List.Item>
