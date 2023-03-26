@@ -7,7 +7,7 @@ const apiKey = async () => {
 };
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: apiKey,
 });
 const openai = new OpenAIApi(configuration);
 

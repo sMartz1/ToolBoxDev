@@ -20,8 +20,7 @@ export const AppProvider = ({ children }) => {
     }, []);
 
     const updateProfile = async (newModel) => {
-        const newData = await updateProfileData(newModel);
-        console.log("data received", newData);
+        await updateProfileData(newModel);
     };
 
     useEffect(() => {

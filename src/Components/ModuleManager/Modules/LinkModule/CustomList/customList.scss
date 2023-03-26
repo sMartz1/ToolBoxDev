@@ -1,0 +1,47 @@
+.list-link-container {
+    background-color: rgb(69, 58, 168);
+    border: none;
+    color:rgb(255, 255, 255);
+    margin-top: 10px;
+    width: 87%;
+
+    .card-options{
+        margin-right: -20px;
+        .settingsButton{
+            margin-right: 2px;
+        }
+    }
+    .list-card-content-container{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .list-card-new-container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+.card-new-environment{
+    background-color: rgba(69, 58, 168, 0.445);
+    border: none;
+    margin-top:10px;
+    width: 87%;
+    .list-card-new-section{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        
+    }
+}
+
+.list-header{
+    display: flex;
+    justify-content: space-between;
+    .environment-options{
+        display: flex;
+        justify-content: space-evenly;
+        width: 70px;
+    }
+}
