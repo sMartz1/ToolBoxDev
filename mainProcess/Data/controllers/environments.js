@@ -10,12 +10,10 @@ const defaultData = [
             {
                 title: "Google",
                 url: "https://google.com",
-                users: [
-                    {
-                        username: "testUsername",
-                        password: "testPassword",
-                    },
-                ],
+                user: {
+                    username: "testUsername",
+                    password: "testPassword",
+                },
             },
         ],
     },
@@ -71,13 +69,22 @@ function environment() {
 
 function updateEnvironmentData(dataUpdate) {
     logger.info("Modifying environment data!");
-    console.log(dataUpdate);
     let data = JSON.stringify(dataUpdate);
     fs.writeFileSync(path, data);
     logger.info("Settings updated");
 }
 
+async function copyUsers(users) {
+    const clip = await import("clipboardy");
+    await clip.default.write(users[1]);
+
+    setTimeout(async () => {
+        await clip.default.write(users[0]);
+    }, 1000);
+}
+
 module.exports = {
     getEnvironments,
     updateEnvironmentData,
+    copyUsers,
 };

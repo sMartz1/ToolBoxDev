@@ -20,6 +20,10 @@ function updateEnvironmentData(data){
     return environmentController.updateEnvironmentData(data);
 }
 
+function copyUsers(users){
+    return environmentController.copyUsers(users);  
+}
+
 
 
 module.exports = {
@@ -27,6 +31,7 @@ module.exports = {
     updateSettings,
     getModuleData,
     getEnvironments,
-    updateEnvironmentData
+    updateEnvironmentData,
+    copyUsers
 
 }

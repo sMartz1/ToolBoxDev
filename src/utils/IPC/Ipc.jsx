@@ -1,6 +1,6 @@
 import AfkModuleIpc from "./modules/AfkModule/AfkModuleIpc";
 import { sendMessage }  from './modules/NaviModule/NaviModuleIpc'
-import { openLink , getEnvironmentData ,updateEnvironmentData } from './modules/LinkModule/LinkModuleIpc'
+import { openLink , getEnvironmentData ,updateEnvironmentData, copyUsers } from './modules/LinkModule/LinkModuleIpc'
 
 export const useIPC = () => {
   
@@ -23,6 +23,7 @@ export const useIPC = () => {
     sendMessage,
     openLink,
     getEnvironmentData,
-    updateEnvironmentData
+    updateEnvironmentData,
+    copyUsers
   };
 };

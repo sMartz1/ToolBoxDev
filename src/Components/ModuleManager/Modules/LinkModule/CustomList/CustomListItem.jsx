@@ -9,10 +9,13 @@ import {
 } from "@ant-design/icons";
 import TypeCodes from "../../../../../utils/Typecodes/ModalTypes";
 import CustomModal from "../../../../CustomModal";
+import { useIPC } from "../../../../../utils/IPC/Ipc";
 export default function CustomListItem(props) {
     const { item, updateData, linkIndex, envIndex } = props;
     const [messageApi, contextHolder] = message.useMessage();
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const { copyUsers } = useIPC();
 
     const handleOpenSettings = () => {
         setIsModalOpen(true);
@@ -26,7 +29,17 @@ export default function CustomListItem(props) {
             duration: 3,
         });
     };
-    const text = 'Are you sure to delete this link?';
+
+    const handleUser = async () => {
+        await copyUsers([item.user.username, item.user.password]);
+        messageApi.open({
+            type: "success",
+            content: "User and password copied into the clipboard!",
+            duration: 3,
+        });
+    };
+    const text = "Are you sure to delete this link?";
+
     const cardExtras = (
         <div className="card-options">
             <Button
@@ -92,7 +105,11 @@ export default function CustomListItem(props) {
                 {contextHolder}
                 <Card title={item.title} extra={cardExtras}>
                     <div className="list-card-content-container">
-                        <Button type="primary" icon={<UserOutlined />}>
+                        <Button
+                            type="primary"
+                            icon={<UserOutlined />}
+                            onClick={handleUser}
+                        >
                             Users
                         </Button>
                         <Button type="primary" icon={<ChromeOutlined />} />

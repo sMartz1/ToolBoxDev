@@ -1,5 +1,5 @@
 const { ipcMain, shell } = require("electron");
-const { updateEnvironmentData , getEnvironments} = require("./linkFunctions");
+const { updateEnvironmentData , getEnvironments , copyUsers} = require("./linkFunctions");
 const logger = require("../../utils/logger");
 function setupListeners(mainWindow, app) {
     ipcMain.handle("openLink", async (event, arg) => {
@@ -14,10 +14,16 @@ function setupListeners(mainWindow, app) {
     });
     ipcMain.handle("updateEnvironmentData", async (event, arg) => {
         logger.warn(`updateEnvironmentData`);
-        console.log(arg)
-        const data = await updateEnvironmentData(arg);
+        await updateEnvironmentData(arg);
         const cdata = await getEnvironments();
         return cdata
+    });
+
+    ipcMain.handle("copyUsers", async (event, arg) => {
+        logger.warn(`copyUsers`);
+        
+        await copyUsers(arg);
+        return true
     });
 
 }

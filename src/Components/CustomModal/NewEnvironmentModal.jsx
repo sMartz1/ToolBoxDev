@@ -43,8 +43,7 @@ export default function NewEnvironmentModal({ isModalOpen, setIsModalOpen, updat
     };
 
     const titleRules = [{ required: true, message: "Please enter a title" }];
-    
-    console.log("IS EDIT",isEdit)
+
     return (
         <Modal
             title={isEdit ? "Modify environment" : "Create environment"}

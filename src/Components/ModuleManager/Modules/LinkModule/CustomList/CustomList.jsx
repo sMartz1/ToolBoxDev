@@ -121,7 +121,6 @@ const ListRenderer = (props) => {
 
 export default function CustomList(props) {
     const { data, updateData } = props;
-    console.log(data);
     return (
         <>
             {addNewElement(data).map((list, i) => (

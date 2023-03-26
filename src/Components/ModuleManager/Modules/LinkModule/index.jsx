@@ -15,13 +15,12 @@ export const LinkModule = (props) => {
 
     useEffect(() => {
         getEnvironmentData().then((d) => {
-            console.log("data de vuelta ", d);
             setData(d);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const updateData = (updateType, value, path) => {
-        console.log(data[path[0]]);
         let tempData = [...data];
         // New link
         if (ModalTypes.newLink === updateType) {
@@ -58,7 +57,6 @@ export const LinkModule = (props) => {
         }
         //Remove environment
         if (ModalTypes.removeEnvironment === updateType) {
-            console.log("LLEGA", tempData[path[0]]);
             tempData.splice(path[0], 1);
             updateEnvironmentData(tempData).then((d) => {
                 setData(d);

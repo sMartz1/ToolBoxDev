@@ -1,5 +1,5 @@
-const { updateEnvironmentData , getEnvironments} = require("../../Data/dataManager");
+const { updateEnvironmentData , getEnvironments, copyUsers} = require("../../Data/dataManager");
 
 module.exports = {
-    updateEnvironmentData , getEnvironments
+    updateEnvironmentData , getEnvironments, copyUsers
 }

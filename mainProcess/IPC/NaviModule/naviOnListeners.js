@@ -7,7 +7,6 @@ function setupListeners(mainWindow,app){
         logger.warn("Sending message to OPENAI")
         const chatData = await sendRequest(arg);
         logger.info("Sending response")
-        console.log(chatData.data.choices)
         return chatData.data.choices;
         
       });
