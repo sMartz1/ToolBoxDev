@@ -1,6 +1,7 @@
 const profileController = require("./controllers/profile");
 const moduleController = require("./controllers/modules")
 const environmentController = require("./controllers/environments")
+const personaController = require("./controllers/personaController")
 function getProfile() {
     return profileController.getProfile();
 }
@@ -24,6 +25,9 @@ function copyUsers(users){
     return environmentController.copyUsers(users);  
 }
 
+function getPersonaData(){
+    return personaController.start()
+}
 
 
 module.exports = {
@@ -32,6 +36,7 @@ module.exports = {
     getModuleData,
     getEnvironments,
     updateEnvironmentData,
-    copyUsers
+    copyUsers,
+    getPersonaData
 
 }

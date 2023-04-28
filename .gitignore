@@ -25,3 +25,4 @@ yarn-error.log*
 
 mainProcess/Data/db/profileData.json
 mainProcess/Data/db/environments.json
+mainProcess/Data/persona/persona4.txt

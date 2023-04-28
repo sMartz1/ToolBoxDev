@@ -1,0 +1,50 @@
+$background-color: rgb(255, 234, 93);
+$background-text-black: rgb(40,40,40);
+$background-text: rgb(255,255,136);
+$text-color: $background-text-black;
+$text-color-2: $background-color;
+$llamar: rgb(255,162,60);
+
+.personaModule {
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+
+    .currentDay{
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        background-color: $background-text-black ;
+        color: $text-color-2;
+        font-size: 1rem;
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        display: flex;
+        border: 3px solid $llamar;
+        justify-content: center;
+        align-items: center;
+        h2{
+            padding-top:10px;
+        }
+    }
+
+    .personaTitle{
+        position: absolute;
+        left: 30%;
+        top:3%;
+        background-color: $background-text-black ;
+        color: $text-color-2;
+        font-size: 2rem;
+        border-radius: 2%;
+        padding: 25px 60px;
+        transform: rotate(6deg);
+
+    }
+}
+
+.App{
+    background-color: $background-color;
+}
