@@ -6,20 +6,27 @@ import { RocketOutlined } from "@ant-design/icons";
 import "./index.scss";
 import ModuleCard from "../ModuleCard";
 import { useCallback } from "react";
+import ContentComponent from "./ContentComponent/ContentComponent";
 
 const title = "Persona";
 
 export const PersonaModule = (props) => {
     const { getPersona } = useIPC();
-    const { isSelected, setSelectedModule, setButtonDisabled } = props;
+    const {
+        isSelected,
+        setSelectedModule,
+        setCustomCssClass,
+    } = props;
     const [personaData, setPersonaData] = useState(null);
     const fetchPersonaData = useCallback(async () => {
         const data = await getPersona();
-        console.log(data);
         setPersonaData(data);
     }, [getPersona]);
     useEffect(() => {
+        if (!isSelected) return;
         fetchPersonaData();
+        document.querySelector(".App").classList.add("customBG");
+        setCustomCssClass("customBG");
     }, []);
 
     const formateDate = (date) => {
@@ -75,15 +82,11 @@ export const PersonaModule = (props) => {
     if (isSelected && personaData !== null) {
         return (
             <div className="personaModule">
-                <div className="personaTitle">
-                    PERSONA 4 GUIDE!
-                </div>
+                <div className="personaTitle">PERSONA 4 GUIDE!</div>
                 <div className="currentDay">
                     <h2>{formateDate(personaData[0].date)}</h2>
                 </div>
-                <div className="dayContent">
-                    
-                </div>
+                <ContentComponent currentDay={personaData[0]} />
             </div>
         );
     } else {

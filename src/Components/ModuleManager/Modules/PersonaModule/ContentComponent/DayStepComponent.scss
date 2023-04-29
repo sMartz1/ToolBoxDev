@@ -1,0 +1,25 @@
+@import "../../../../../utils/styles/globalVariables.scss";
+.dayStep {
+    margin-bottom: 20px;
+
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    .stepTitle {
+        background-color: $llamar;
+        width: 140px;
+        height: 30px;
+        font-size: 1.2rem;
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+    }
+    .stepContent {
+        width: 80%;
+        margin-bottom: 12px;
+    }
+}

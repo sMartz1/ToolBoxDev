@@ -8,6 +8,7 @@ export default function ComponentRenderer({
   setSelectedModule,
 }) {
   const [buttonDisabled,setButtonDisabled] = useState(false);
+  const [customCssClass,setCustomCssClass] = useState("");
 
   //We add props to the child component
   const componentWithProps = Children.map(children,(child)=>{
@@ -15,10 +16,15 @@ export default function ComponentRenderer({
 
     return cloneElement(child,{
       ...child.props,
-      setButtonDisabled
+      setButtonDisabled,
+      setCustomCssClass
     })
   })
 
+  const handleCloseModule = ()=>{
+    setSelectedModule(-1)
+    document.querySelector(".App").classList.remove(customCssClass)
+  }
   
   return (
     <div className={isSelected?"module-container-full":"module-container"}>
@@ -26,7 +32,7 @@ export default function ComponentRenderer({
         <Button
           rootClassName="back-button"
           type="primary"
-          onClick={() => setSelectedModule(-1)}
+          onClick={handleCloseModule}
           icon={<StepBackwardOutlined />}
           disabled={buttonDisabled}
           danger

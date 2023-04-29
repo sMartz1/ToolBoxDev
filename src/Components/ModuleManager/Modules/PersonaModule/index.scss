@@ -1,24 +1,22 @@
-$background-color: rgb(255, 234, 93);
-$background-text-black: rgb(40,40,40);
-$background-text: rgb(255,255,136);
-$text-color: $background-text-black;
-$text-color-2: $background-color;
-$llamar: rgb(255,162,60);
-
+@import "../../../../utils/styles/globalVariables.scss";
+$font-path: "../../../../assets/fonts/Fontsona4Golden.ttf";
 .personaModule {
+    src: url($font-path) format("truetype");
     background-color: $background-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 90%;
+    font-family: Fontsona4Golden ;
+  
 
-    .currentDay{
+    .currentDay {
         position: absolute;
         top: 50px;
         right: 50px;
-        background-color: $background-text-black ;
+        background-color: $background-text-black;
         color: $text-color-2;
-        font-size: 1rem;
+        font-size: 1.4rem;
         height: 110px;
         width: 110px;
         border-radius: 50%;
@@ -26,25 +24,27 @@ $llamar: rgb(255,162,60);
         border: 3px solid $llamar;
         justify-content: center;
         align-items: center;
-        h2{
-            padding-top:10px;
+       
+        h2 {
+            padding-top: 18px;
+            font-weight: 700;
         }
     }
 
-    .personaTitle{
+    .personaTitle {
         position: absolute;
         left: 30%;
-        top:3%;
-        background-color: $background-text-black ;
+        top: 3%;
+        background-color: $background-text-black;
         color: $text-color-2;
         font-size: 2rem;
         border-radius: 2%;
         padding: 25px 60px;
         transform: rotate(6deg);
-
+        font-weight: 700;
     }
 }
 
-.App{
+.customBG {
     background-color: $background-color;
 }
