@@ -1,13 +1,19 @@
 @import "../../../../../utils/styles/globalVariables.scss";
-.contentContainer{
-    background-color:$background-text ;
-    padding-top: 50px;
+.contentContainer {
+    background-color: $background-text;
+    padding-bottom: 100px;
+    min-height: 80vh;
     width: 100%;
-    min-height: 40vh;
     display: flex;
     margin-top: 80px;
-    display: flex;
     flex-flow: column;
-    align-items: center;
-    justify-content: space-evenly;
+    max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-color: $llamar $llamar;
+}
+::-webkit-scrollbar-track {
+    background: $background-text;
+    }
+::-webkit-scrollbar-thumb {
+    background-color: $llamar; /* color del thumb (la barra que se mueve) */
 }

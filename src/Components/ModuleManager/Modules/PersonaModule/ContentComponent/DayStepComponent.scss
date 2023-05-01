@@ -1,7 +1,6 @@
 @import "../../../../../utils/styles/globalVariables.scss";
 .dayStep {
     margin-bottom: 20px;
-
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -21,5 +20,20 @@
     .stepContent {
         width: 80%;
         margin-bottom: 12px;
+
+        .dayStepSection{
+            background-color: $background-text-black;
+            border-radius: 5px;
+            padding: 15px;
+            border: 2px solid $llamar;
+
+            h2{
+                color: $text-color-2;
+                border-bottom: 1px solid black;
+            }
+            p{
+                color: $text-color-2;
+            }
+        }
     }
 }

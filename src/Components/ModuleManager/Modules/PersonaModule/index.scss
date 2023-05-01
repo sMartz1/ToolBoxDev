@@ -43,6 +43,36 @@ $font-path: "../../../../assets/fonts/Fontsona4Golden.ttf";
         transform: rotate(6deg);
         font-weight: 700;
     }
+
+
+    .nextDayButton{
+        height: 50px;
+        position: absolute;
+        top:50vh;
+        right: 20px;
+        font-size: 3rem;
+        font-weight: 900;
+        transition: all 0.5s;
+        &:hover{
+            cursor: pointer;
+            color: $llamar;
+        }
+        
+    }
+    .backDayButton{
+        height: 50px;
+        position: absolute;
+        top:50vh;
+        left: 20px;
+        font-size: 3rem;
+        font-weight: 900;
+        transition: all 0.5s;
+        &:hover{
+            cursor: pointer;
+            color: $llamar;
+        }
+        
+    }
 }
 
 .customBG {

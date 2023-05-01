@@ -12,15 +12,13 @@ const title = "Persona";
 
 export const PersonaModule = (props) => {
     const { getPersona } = useIPC();
-    const {
-        isSelected,
-        setSelectedModule,
-        setCustomCssClass,
-    } = props;
+    const { isSelected, setSelectedModule, setCustomCssClass } = props;
     const [personaData, setPersonaData] = useState(null);
+    const [selectedDay, setSelectedDay] = useState(null);
     const fetchPersonaData = useCallback(async () => {
         const data = await getPersona();
         setPersonaData(data);
+        setSelectedDay(0);
     }, [getPersona]);
     useEffect(() => {
         if (!isSelected) return;
@@ -79,14 +77,25 @@ export const PersonaModule = (props) => {
         return mes + "/" + dia;
     };
 
+    const handleNextDay = (input) => {
+        setSelectedDay(selectedDay + input);
+    };
     if (isSelected && personaData !== null) {
         return (
             <div className="personaModule">
                 <div className="personaTitle">PERSONA 4 GUIDE!</div>
                 <div className="currentDay">
-                    <h2>{formateDate(personaData[0].date)}</h2>
+                    <h2>{formateDate(personaData[selectedDay].date)}</h2>
                 </div>
-                <ContentComponent currentDay={personaData[0]} />
+                <ContentComponent currentDay={personaData[selectedDay]} />
+                <div className="nextDayButton" onClick={()=>handleNextDay(1)}>
+                    {">"}
+                </div>
+                {selectedDay > 0 ? (
+                    <div className="backDayButton" onClick={()=>handleNextDay(-1)}>
+                        {"<"}
+                    </div>
+                ) : null}
             </div>
         );
     } else {
