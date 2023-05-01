@@ -49,6 +49,8 @@ const typeOfLine = (ln) => {
         "Evening",
         "Daytime",
         "Early Morning",
+        "Lunchtime",
+        "TV World"
     ];
     const isDay = availableSteps.indexOf(ln);
     if (isDay !== -1) {

@@ -34,6 +34,13 @@
             p{
                 color: $text-color-2;
             }
+            .importantMessage{
+                background-color: rgb(255, 52, 52);
+                padding: 5px;
+                margin-bottom: 0px;
+                color:rgba(0, 0, 0, 0.712);
+                font-weight: 600;
+            }
         }
     }
 }

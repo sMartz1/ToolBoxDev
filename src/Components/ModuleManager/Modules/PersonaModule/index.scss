@@ -6,9 +6,8 @@ $font-path: "../../../../assets/fonts/Fontsona4Golden.ttf";
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 90%;
-    font-family: Fontsona4Golden ;
-  
+    width: 87%;
+    font-family: Fontsona4Golden;
 
     .currentDay {
         position: absolute;
@@ -24,7 +23,7 @@ $font-path: "../../../../assets/fonts/Fontsona4Golden.ttf";
         border: 3px solid $llamar;
         justify-content: center;
         align-items: center;
-       
+
         h2 {
             padding-top: 18px;
             font-weight: 700;
@@ -44,34 +43,31 @@ $font-path: "../../../../assets/fonts/Fontsona4Golden.ttf";
         font-weight: 700;
     }
 
-
-    .nextDayButton{
+    .nextDayButton {
         height: 50px;
         position: absolute;
-        top:50vh;
+        top: 50vh;
         right: 20px;
         font-size: 3rem;
         font-weight: 900;
         transition: all 0.5s;
-        &:hover{
+        &:hover {
             cursor: pointer;
             color: $llamar;
         }
-        
     }
-    .backDayButton{
+    .backDayButton {
         height: 50px;
         position: absolute;
-        top:50vh;
+        top: 50vh;
         left: 20px;
         font-size: 3rem;
         font-weight: 900;
         transition: all 0.5s;
-        &:hover{
+        &:hover {
             cursor: pointer;
             color: $llamar;
         }
-        
     }
 }
 

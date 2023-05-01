@@ -3,6 +3,7 @@ import "./ContentComponent.scss";
 import personaTypecodes from "../../../../../utils/Typecodes/personaTypes";
 import DayStepComponent from "./DayStepComponent";
 export default function ContentComponent({ currentDay }) {
+    console.log("Day :", currentDay);
     const handleRenderDaySteps = () => {
         let finalRenderArr = [];
         for (let property in currentDay) {
@@ -18,7 +19,6 @@ export default function ContentComponent({ currentDay }) {
 
         return finalRenderArr;
     };
-    console.log(currentDay);
     return (
         <div className="contentContainer">
             {handleRenderDaySteps().map((e) => e)}
