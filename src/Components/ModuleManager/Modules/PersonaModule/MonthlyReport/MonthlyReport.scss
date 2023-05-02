@@ -1,0 +1,23 @@
+@import "../../../../../utils/styles/globalVariables.scss";
+.monthlyContainer {
+    background-color: $background-text;
+    padding: 30px 30px 120px 30px;
+    min-height: 80vh;
+    width: 70%;
+    display: flex;
+    margin-top: 80px;
+    flex-flow: column;
+    max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-color: $llamar $llamar;
+    align-self: center;
+
+    .tableTitle{
+        font-size: 2rem;
+        font-weight: 700;
+        background-color: $background-text-black;
+        color:white;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+    }
+}

@@ -7,6 +7,7 @@ import "./index.scss";
 import ModuleCard from "../ModuleCard";
 import { useCallback } from "react";
 import ContentComponent from "./ContentComponent/ContentComponent";
+import MonthlyReport from "./MonthlyReport/MonthlyReport";
 
 const title = "Persona";
 
@@ -80,19 +81,36 @@ export const PersonaModule = (props) => {
     const handleNextDay = (input) => {
         setSelectedDay(selectedDay + input);
     };
+
+    const isMonthlyProgress = (str) => {
+        return str.endsWith("Monthly Progress");
+    };
     if (isSelected && personaData !== null) {
+        const isReport = isMonthlyProgress(personaData[selectedDay].date);
         return (
             <div className="personaModule">
                 <div className="personaTitle">PERSONA 4 GUIDE!</div>
                 <div className="currentDay">
-                    <h2>{formateDate(personaData[selectedDay].date)}</h2>
+                    <h2>
+                        {!isReport
+                            ? formateDate(personaData[selectedDay].date)
+                            : "--"}
+                    </h2>
                 </div>
-                <ContentComponent currentDay={personaData[selectedDay]} />
-                <div className="nextDayButton" onClick={()=>handleNextDay(1)}>
+                {isReport ? (
+                    <MonthlyReport data={personaData[selectedDay]}/>
+                ) : (
+                    <ContentComponent currentDay={personaData[selectedDay]} />
+                )}
+
+                <div className="nextDayButton" onClick={() => handleNextDay(1)}>
                     {">"}
                 </div>
                 {selectedDay > 0 ? (
-                    <div className="backDayButton" onClick={()=>handleNextDay(-1)}>
+                    <div
+                        className="backDayButton"
+                        onClick={() => handleNextDay(-1)}
+                    >
                         {"<"}
                     </div>
                 ) : null}
