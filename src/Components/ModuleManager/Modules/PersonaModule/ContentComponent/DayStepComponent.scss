@@ -35,11 +35,18 @@
                 color: $text-color-2;
             }
             .importantMessage{
-                background-color: rgb(255, 52, 52);
+                background-color: rgb(253, 87, 87);
                 padding: 5px;
                 margin-bottom: 0px;
                 color:rgba(0, 0, 0, 0.712);
                 font-weight: 600;
+            }
+            .obtainedItem{
+                background-color: rgb(103, 223, 133);
+                padding: 5px;
+                color:rgba(0, 0, 0, 0.712);
+                font-weight: 600;
+                
             }
         }
     }

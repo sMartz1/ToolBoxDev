@@ -1,5 +1,7 @@
 import React from "react";
 import "./DayStepComponent.scss";
+import { GiSwapBag } from "react-icons/gi";
+import { FaLevelUpAlt } from "react-icons/fa";
 
 export default function DayStepComponent({ step, title }) {
     const isStepHeader = (ln) => {
@@ -8,6 +10,10 @@ export default function DayStepComponent({ step, title }) {
 
     const isImportantLine = (ln) => {
         return ln === "IMPORTANT! IMPORTANT! IMPORTANT!";
+    };
+
+    const isStatUp = (ln) => {
+        return ln.endsWith("UP") || ln.endsWith("GREATLY UP");
     };
     // eslint-disable-next-line no-unused-vars
     const renderDayStep = () => {
@@ -46,8 +52,18 @@ export default function DayStepComponent({ step, title }) {
                 isImportant = false;
             } else {
                 tempStepContent.push(
-                    <p className={isImportant ? "importantMessage" : ""}>
+                    <p
+                        className={`${isImportant ? "importantMessage" : ""} ${
+                            step[index].startsWith("Obtained")
+                                ? "obtainedItem"
+                                : ""
+                        } `}
+                    >
+                        {step[index].startsWith("Obtained") ? (
+                            <GiSwapBag />
+                        ) : null}{" "}
                         {step[index]}
+                        {isStatUp(step[index]) ? <FaLevelUpAlt /> : null}
                     </p>
                 );
             }
