@@ -7,6 +7,7 @@ const typeKeys = {
         LAUNCHTIME: "Lunchtime",
         TVWORLD: "TV World",
         DAYTIME: "Daytime",
+        MIDTERMS: "Midterms",
         checkIfIsDayStep: (step) =>
             [
                 "Morning",
@@ -16,6 +17,7 @@ const typeKeys = {
                 "Lunchtime",
                 "TV World",
                 "Daytime",
+                "Midterms",
             ].includes(step),
     },
 };

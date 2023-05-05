@@ -50,7 +50,8 @@ const typeOfLine = (ln) => {
         "Daytime",
         "Early Morning",
         "Lunchtime",
-        "TV World"
+        "TV World",
+        "Midterms",
     ];
     const isDay = availableSteps.indexOf(ln);
     if (isDay !== -1) {
